@@ -206,6 +206,8 @@ body{
 
 .img__course--generation{
     aspect-ratio: 148/59;
+    /* height: 232.21px; */
+    /* object-fit: cover; */
 }
 
 .main__analysis{

@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href='/img/stars.svg' />
+		<meta name="description" content="Miguel Ángel Madroñero Sequeira, Desarrollador Front End, construyo paginas web, apasionado por la programación y a la entrega de soluciones óptimas para mis clientes." />
     <link rel="stylesheet" href="index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -53,7 +55,7 @@
                 class="hero__arrow"
               />
             </a>
-            <a target="_blank" href="https://www.linkedin.com/in/miguel-%C3%A1ngel-madro%C3%B1ero-sequeira-9b89a31b4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="hero__link">
+            <a target="_blank" href="https://www.linkedin.com/in/miguel-%C3%A1ngel-madro%C3%B1ero-sequeira-front-end/" class="hero__link">
               <p class="hero__social">Linkedin</p>
               <img
                 src="./img/arrow_back_black_24dp 1.svg"
@@ -61,7 +63,7 @@
                 class="hero__arrow"
               />
             </a>
-            <a href="#" class="hero__link">
+            <a href="./CV-miguel-madroñero-Front-end.pdf" download="CV-miguel-madroñero-Front-end.pdf" class="hero__link">
               <p class="hero__social">Currículo</p>
               <img
                 src="./img/arrow_back_black_24dp 1.svg"
@@ -102,8 +104,8 @@
             <p class="main__html">Javascript</p>
           </div>
           <div class="main__skill">
-            <img src="./img/react.svg" alt="html5" class="skill__img">
-            <p class="main__html">React</p>
+            <img src="./img/astro.svg" alt="html5" class="skill__img">
+            <p class="main__html">Astro</p>
           </div>
           <div class="main__skill">
             <img src="./img/css.svg" alt="html5" class="skill__img">
@@ -166,6 +168,32 @@
         <h2 class="main__subtitle main__subtitle--academic ">Experiencia profesional</h2>
         <div class="main__projects">
           <div class="main__project">
+            <img src="./img/psico.png" alt="" class="img__project">
+            <div class="project__texts">
+              <div class="project__grid">
+                <h4 class="main__analysis">Página Web Psicología In House con Astro</h4>
+                <p class="paragraph__course paragraph__course--project">Proyecto Freelance</p>
+              </div>
+              <div class="project__buttons">
+                <!-- <a href="https://github.com/MiguelAngelMadronero/sunnyside-landing-page" target="_blank"  class="project__repository" disabled>Repositório</a> -->
+                <a href="https://psicologiainhousecolombia.com/" target="_blank"  class="project__repository--demo project__repository">Ver Página desplegada</a>
+              </div>
+              </div>
+          </div>
+          <div class="main__project">
+            <img src="./img/sara.png" alt="" class="img__project">
+            <div class="project__texts">
+              <div class="project__grid">
+                <h4 class="main__analysis">Página Web Sara Contigo con Astro</h4>
+                <p class="paragraph__course paragraph__course--project">Proyecto Freelance</p>
+              </div>
+              <div class="project__buttons">
+                <!-- <a href="https://github.com/MiguelAngelMadronero/sunnyside-landing-page" target="_blank"  class="project__repository">Repositório</a> -->
+                <a href="https://saracontigo.com/" target="_blank"  class="project__repository--demo project__repository">Ver Página desplegada</a>
+              </div>
+              </div>
+          </div>
+          <div class="main__project">
             <img src="./img/sunnyside.webp" alt="" class="img__project">
             <div class="project__texts">
               <div class="project__grid">
@@ -227,8 +255,9 @@
         <div class="main__content container">
           <h2 class="hero__subtitle hero__subtitle--contacto">Contacto</h2>
           <p class="paragraph__contact">¿Quieres contactarme?<br> Complete el siguiente formulario y me pondré en contacto con usted lo antes posible.</p>
-          <form  class="form" action="https://formspree.io/f/mbjnnoyy"
+          <form  class="form" action="https://api.web3forms.com/submit"
           method="POST">
+          <input type="hidden" name="access_key" value="cd2a9e20-4074-4572-8cc8-02fcbe9eb21c">
             <div class="form__container">
             <input class="form__input" type="text" id="name" name="name" placeholder=" " required >
             <label for="name" class="form__label">Nombre</label>
@@ -249,7 +278,7 @@
             <label for="mensaje" class="form__label">Mensaje</label>
 
             </div>
-
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
             <input type="submit" class="form__submit " value="Enviar mensaje">
             
           </form>
@@ -264,6 +293,33 @@
       </p>
     </footer>
 
-  
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector(".form");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault(); // Evita el envío inmediato del formulario
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData
+                });
+
+                if (response.ok) {
+                  window.location.href = "https://web3forms.com/success"; // Redirige a Web3Forms
+                  form.reset(); // Limpia los campos del formulario
+                } else {
+                    alert("Error al enviar el formulario. Intenta de nuevo.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Ocurrió un error. Intente más tarde.");
+            }
+        });
+    });
+    </script>
   </body>
 </html>
